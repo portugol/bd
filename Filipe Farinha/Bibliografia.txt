@@ -1,0 +1,4 @@
+﻿Bibliografia: 
+
+Exercícios da disciplina de Linguagens de Programação do CET TPSI
+Exercícios do livro "Linguagem C", Luís Damas, Editora FCA

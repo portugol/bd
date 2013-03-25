@@ -1,0 +1,229 @@
+﻿1. Programa que imprime um triângulo no ecrã.
+
+inicio
+
+	inteiro i, j
+	para i de 1 ate 5
+		para j de 1 ate i
+			escrever "*"
+		proximo
+		
+		escrever "\n"
+	proximo
+
+fim
+
+
+2. Programa que calcula a área de um quadrado cujo lado é fornecido pelo utilizador.
+
+inicio
+
+	inteiro lado, area
+	escrever "Medida do lado do quadrado: "
+	ler lado
+	escrever "\n"
+	area <- lado * lado
+	escrever "A area do quadrado é: " , area
+	
+fim
+
+
+3. Programa que verifica se um número fornecido pelo utilizador é positivo, negativo ou nulo.
+
+inicio
+
+	inteiro numero
+	escrever "Digite um numero: "
+	ler numero
+	se numero > 0 entao
+		escrever "positivo"
+		fim
+	senao
+		se numero < 0 entao
+			escrever "negativo"
+			fim
+		senao
+			escrever "nulo"
+		fimse
+	fimse
+	
+fim
+
+
+4. Programa que verifica se um dado número é par ou ímpar.
+
+inicio
+
+	inteiro n
+	escrever "Digite um número: "
+	ler n
+	se n % 2 = 0 entao
+		escrever "Número par"
+	senao
+		escrever "Número ímpar"
+	fimse
+	
+fim
+
+
+5. Programa que verifica se um ano é comum ou bissexto.
+
+inicio
+
+	inteiro ano
+	escrever "Digite um ano: "
+	ler ano
+	se (ano % 400 = 0) entao
+		escrever "Ano bissexto"
+	senao
+		se (ano % 4 = 0) e (ano % 100 =/= 0) entao
+			escrever "Ano bissexto"
+		senao
+			escrever "Ano comum"
+		fimse
+	fimse
+	
+fim
+
+
+6. Programa que calcula o IMC (Índice de Massa Corporal).
+
+inicio
+	
+	inteiro imc
+	escrever "Digite o valor do IMC (Índice de Massa Corporal): "
+	ler imc
+	se imc < 20 entao
+		escrever "Abaixo do peso"
+	senao
+		se (imc >= 20 e imc <= 24) entao
+			escrever "Peso ideal"
+		senao
+			se (imc >= 25 e imc <= 39) entao
+				escrever "Excesso de peso"
+			senao
+				se (imc >= 30 e imc <= 39) entao
+					escrever "Obesidade"
+				senao
+					se imc > 39 entao
+						escrever "Obesidade mórbida"
+					senao
+						escrever "Valor inválido"
+					fimse
+				fimse
+			fimse
+		fimse
+	fimse
+	
+fim
+
+
+7. Programa que imprime a tabuada de um número fornecido pelo utilizador.
+
+inicio
+
+	inteiro i, t, j <- 1
+	escrever "Tabuada a mostrar: "
+	ler t
+	j <- t
+	para i de 1 até 10
+		escrever i, " * " , j , " = " , i * j , "\n"
+	proximo
+	
+fim
+
+
+8. Programa que calcula o factorial de um numero inteiro positivo introduzido pelo utilizador.
+
+inicio
+
+	inteiro i, numero, factorial
+	escrever "Digite um numero: "
+	ler numero
+	factorial <- 1
+	para i de 1 ate numero
+		factorial <- factorial * i
+	proximo
+	escrever numero , "! = " , factorial
+	
+fim
+
+
+9. Escreva um programa que mostre os 10 primeiros números pares
+
+#include <stdio.h>
+
+main(){
+	int i;
+	for(i=1;i<=10;i++){
+		printf("%2d\n",2*i);
+	}
+}
+
+	
+fim
+
+
+10. Programa que imprime a soma de todos os numeros inteiros num intervalo introduzido pelo utilizador.
+
+inicio
+
+	inteiro li, ls, s
+	escrever "Limite inferior: "
+	ler li
+	escrever "Limite superior: "
+	ler ls
+	enquanto li <= ls faz
+		s <- s + li
+		li <- li + 1
+	fimenquanto
+	escrever s
+	
+fim
+
+
+11. Escreva um programa que coloque no ecrã os primeiros 10 números inteiros
+
+#include <stdio.h>
+
+main(){
+	int i;
+	i=1;
+	while (i <= 10){
+		printf("%d\n",i);
+		i = i + 1;
+	}
+}
+
+
+12. Escreva um programa que calcule a soma e o produto dos n primeiros números naturais
+
+#include <stdio.h>
+
+main(){
+	int n, num, soma, produto;
+	printf("Introduza um nº.: ");
+	scanf("%d", &num);
+	
+	for(soma=0 n=produto; n <= num; n=n+1){
+			soma=soma+n;
+			produto=produto*n;
+	}
+	printf("Soma = %d\nProduto=%d\n",soma,produto);
+}
+
+
+13. Escreva um programa que solicite ao utilizador um número e escreva em simultâneo a sequência crescente e decrescente entre 1 e esse número
+
+#include <stdio.h>
+
+main(){
+	int i,j,n;
+	printf("Introduza um número: ");
+	scanf("%d",&n);
+	for(i=1, j=n;i<=n;i++, j--)
+		printf("%d %d\n",i,j);
+}
+
+
+
