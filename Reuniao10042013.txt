@@ -1,0 +1,16 @@
+Reunião de 10/04/2013
+
+PSI
+
+Definidos os conceitos referentes aos dados a armazenar:
+	-ResolucaoIde: grafos provenientes do IDE
+	-ResolucaoUser: grafos submetidos pelos utilizadores
+	
+Conteúdos a armazenar:
+	-ResolucaoIde: _id (automático); idQuestao; grafo
+	-ResolucaoUser: _id (automático); idUser; idQuestao; idTeste; grafo
+	
+Tarefa para esta semana:
+	Estudar bibliotecas nodejs
+		-Minimalista
+		-Outras
