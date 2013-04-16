@@ -1,0 +1,4 @@
+#!/bin/bash
+git clone https://github.com/portugol/ide
+rm -rf public
+mv ide public
