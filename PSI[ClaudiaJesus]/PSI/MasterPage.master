@@ -1,0 +1,112 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Painel Administração</title>
+    <link href="Style/StyleMaster.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+
+        function start() {
+            refresh();
+            window.setInterval("refresh()", 1000);
+        }
+
+        function refresh() {
+            var h, m, s, mes, horas, sep = ":";
+            d = new Date();
+            h = d.getHours();
+            m = d.getMinutes();
+            s = d.getSeconds();
+            if (h < 10) h = "0" + h;
+            if (m < 10) m = "0" + m;
+            if (s < 10) s = "0" + s;
+            horas = h + sep + m + sep + s;
+            document.getElementById("clock").innerHTML = horas + "<br/>" + d.toLocaleDateString();
+        }	
+    </script>
+</head>
+<body onload="start();">
+    <form id="form1" runat="server">
+    <div>
+        <a href="MasterPage.master"></a>
+        <br />
+        <table id="tabela" style="background-color: White" align="center" border="0" cellspacing="0"
+            cellpadding="0">
+            <tr>
+                <td width="15" background="./Images/md_r2_c2.gif">
+                    &nbsp;
+                </td>
+                <td colspan="2" background="Images/md_r2_c3.gif" style="vertical-align: middle; text-align: left;">
+                    &nbsp;
+                    <br />
+                </td>
+                <td width="15" background="Images/md_r2_c4.gif">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td width="15" background="Images/md_r4_c2.gif">
+                    &nbsp;
+                </td>
+                <td colspan="2" id="td_top_centro" align="right">
+                    <div id="clock" align="right">
+                    </div>
+                </td>
+                <td width="15" background="Images/md_r5_c4.gif">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td width="15" background="Images/md_r4_c2.gif">
+                    &nbsp;
+                </td>
+                <td colspan="2" id="td_top_centro1">
+                    &nbsp;</td>
+                <td width="15" background="Images/md_r5_c4.gif">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td width="15" height="285px" background="Images/md_r4_c2.gif">
+                    &nbsp;
+                </td>
+                <td valign="top" id="td_menu">
+                    &nbsp;
+                    <br />
+                    <br />
+                    <br />                 
+                </td>
+                <td width="776" align="left" valign="top" style="text-align: center">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td width="15" background="Images/md_r5_c4.gif">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td width="15" background="Images/md_r4_c2.gif">
+                    &nbsp;
+                </td>
+                <td colspan="2" align="center">
+                    <td width="15" background="Images/md_r5_c4.gif">
+                        &nbsp;
+                    </td>
+            </tr>
+            <tr>
+                <td width="15" background="Images/md_r8_c2.gif">
+                    &nbsp;
+                </td>
+                <td colspan="2" background="Images/md_r8_c3.gif">
+                    &nbsp;
+                </td>
+                <td width="15" background="Images/md_r8_c4.gif">
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
