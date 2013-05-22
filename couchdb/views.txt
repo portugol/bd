@@ -1,0 +1,35 @@
+"Map function" funcionam num documento e nao podem aceder a dados de outro documento.
+A ventagem disto é que as funcoes podem podem processar os dados em qualquer ordem
+independentemente do resto da informacao.
+CouchDB produz indexes estaticos atraves do output das "view map function" para que 
+pesquisas (queries) a essas "views" sejam rapidas.
+Quando um documento e alterado, o CouchD reconstruir os indexes de forma incremental
+apenas para esses docuemntos sem ter que reconstruir todos os indexes de inicio.
+
+Map functions operate on one document at a time and cannot access data from other documents. 
+The advantage of this is that the functions can process data in any order and can run on any 
+piece of a data set independent of the rest of the set. CouchDB builds static indexes from 
+the output of view map functions so that queries against those views will run quickly. 
+When any documents change CouchDB can incrementally rebuild the indexes for just those 
+documents without having to rebuild entire indexes from scratch.
+
+O CouchDB oferece grande velocidade de desempenho para grandes pedacos de dados.
+Isto implica que nao seja possivel passar parametros dinamicamente para os nossos "map
+function" quando corremos uma pesquisa (query).
+Nao podemos pedir que seja mostrado apenas os dados de um utilizador com um determinado
+ultimo nome, a nao ser que se queira uma "view" especifica para cada ultimo nome. 
+Na maioria dos casos e muito complicado criar "views" separadas para cada pesquisa (query)
+que possa vir a ser necessaria numa situacao pontual futura.
+Por isso o que se pode fazer e fazer uma pesquisa "query" a uma "view" com um resultado 
+generico ao caso exempleficado acima e requisitar apenas os pares "key/value" que 
+coincidam com a "key" em particular.
+
+
+The CouchDB design gets you great performance on large data sets. But it means that you
+cannot pass dynamic parameters to your map function when you run a query. You cannot ask 
+for it to emit only user records with a given last name unless you want to maintain a 
+special view for that particular last name. In most cases it is not practical to build 
+separate views for every query that you might want to run someday. So what you can do
+is to run a query against the general purpose view above and request only key/value
+pairs that match a particular key.
+
