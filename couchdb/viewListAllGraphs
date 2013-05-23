@@ -1,0 +1,10 @@
+{
+   "_id": "_design/graph",
+   "_rev": "2-6661a83576a34492fb708137ca1c337a",
+   "language": "javascript",
+   "views": {
+       "graph": {
+           "map": "function(doc) {\n\tif(doc.type == 'graph'){\n emit(doc.userId, {GraphID: doc._id, Graph:doc.graph});\n}\n \n}"
+       }
+   }
+}
