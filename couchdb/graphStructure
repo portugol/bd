@@ -1,0 +1,20 @@
+//estrutura de grafos usada no exemplo da viewListAllGraphs
+
+{
+   "_id": "graph_0007",
+   "_rev": "2-1d69d5fbce57ab22736f211a9b9e6cd8",
+   "userId": "0010",
+   "graph": {
+       "root": {
+           "type": 1,
+           "next": {
+               "type": 3,
+               "data": "teste",
+               "next": {
+                   "type": 2
+               }
+           }
+       }
+   },
+   "type": "graph"
+}
