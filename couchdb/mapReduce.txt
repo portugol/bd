@@ -1,1 +1,4 @@
 http://www.kchodorow.com/blog/2010/03/15/mapreduce-the-fanfiction/
+
+melhor link de views map/reduce ate 23-05-2013:
+http://www.slideshare.net/Couchbase/couchconfberlinqueryingwithcouchbase
