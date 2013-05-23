@@ -1,3 +1,15 @@
+para chamar uma view depois de guardada basta colocar o URL para mesma, por exemplo em localhost:
+http://localhost:5984/mydb/_design/graph/_view/graph
+
+mydb -> base de dados onde esta guardada a view
+_design/graph -> indica que estamos a usar o documento de design/graph, diferente dos documentos json
+_view/graph -> indica que vamos executar uma view com o nome grpah
+
+http://localhost:5984/mydb/_design/graph/_view/graph?key="0001"
+a adicao de ?key="0001" permite filtrar o resultado obtido, mostrando apenas os graphs do utilizador 
+o userId 0001 neste caso. De notar que a view é mesma mas a inclusao de um parametro de pesquisa
+permite filtrar os dados visualizados.
+
 {
    "_id": "_design/graph",
    "_rev": "2-6661a83576a34492fb708137ca1c337a",
