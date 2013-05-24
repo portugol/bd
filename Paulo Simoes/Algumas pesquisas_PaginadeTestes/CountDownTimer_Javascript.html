@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script>
+	
+    var interval;
+    var minutes = 5; // Alterar Valor mits
+    var seconds = 10; // Alterar Valor seconds
+    window.onload = function() {
+        countdown('countdown');
+    }
+       // stop();
+    function countdown(element) {
+		var interval;
+        var minutes = 5; // Alterar Valor mits
+        var seconds = 10;
+		
+        interval = setInterval(function() {
+            var el = document.getElementById(element);
+            if(seconds == 0) {
+                if(minutes == 0) {
+                    el.innerHTML = "Tempo de teste terminado";                    
+                    clearInterval(interval);
+                    return;
+                } else {
+                    minutes--;
+                    seconds = 60;
+                }
+            }
+            if(minutes > 0) {
+                var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+            } else {
+                var minute_text = '';
+            }
+            var second_text = seconds > 1 ? 'seconds' : 'second';
+            el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + ' remaining';
+            seconds--;
+        }, 1000);
+    }
+    </script>
+</head>
+<body>
+<div id='countdown'></div>
+<br />
+ <input type="button" onClick="countdown()" value="Clika"/>
+ <br />
+  <input type="button" onClick="javascript:location.reload(true)" value="Inicia"/>
+  
+</body>
+</html>
