@@ -23,3 +23,5 @@ permite filtrar os dados visualizados.
        }
    }
 }
+
+http://localhost:5984/mydb/_design/graph/_view/users
