@@ -18,5 +18,8 @@ permite filtrar os dados visualizados.
        "graph": {
            "map": "function(doc) {\n\tif(doc.type == 'graph'){\n emit(doc.userId, {GraphID: doc._id, Graph:doc.graph});\n}\n \n}"
        }
+       "users": {
+           "map": "function(doc) {\n\tif(doc.type == 'graph'){\n emit(doc.userId, {GraphID: doc._id, Graph:doc.graph});\n}\n \n}"
+       }
    }
 }
