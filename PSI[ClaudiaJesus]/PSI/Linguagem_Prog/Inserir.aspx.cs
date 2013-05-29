@@ -8,7 +8,7 @@ public partial class LingProg_Inserir : System.Web.UI.Page
     {
 
     }
-    protected void bt_Inserir(object sender, EventArgs e)
+    protected void bt_Gravar(object sender, EventArgs e)
     {
         string strConn_Access = ConfigurationManager.ConnectionStrings["ConnectionString_Listar"].ConnectionString;
 
@@ -37,7 +37,7 @@ public partial class LingProg_Inserir : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            lbl_erro.Text = "Houve um erro na introdução dos dados - " + ex.Message;
+            lbl_erro.Text = "Houve um erro na introdução dos dados";
             lbl_erro.Visible = true;
         }
     }

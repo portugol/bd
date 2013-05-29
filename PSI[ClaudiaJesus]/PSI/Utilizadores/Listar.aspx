@@ -26,18 +26,16 @@
                 <asp:GridView ID="GrdvList_utilizadores" runat="server" AllowPaging="True" 
                     AllowSorting="True" AutoGenerateColumns="False" 
                     DataSourceID="SqlDataSource_utilizList" CellPadding="4" ForeColor="Black" 
-                    GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" DataKeyNames="Id" EnableModelValidation="True">
+                    GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" DataKeyNames="Id" EnableModelValidation="True" Width="721px">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" InsertVisible="False" ReadOnly="True" />
                         <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
-                        <asp:BoundField DataField="Morada" HeaderText="Morada" 
-                            SortExpression="Morada" />
-                        <asp:BoundField DataField="Contacto" HeaderText="Contacto" 
-                            SortExpression="Contacto" />
+                        <asp:BoundField DataField="Morada" HeaderText="Morada" SortExpression="Morada" />
+                        <asp:BoundField DataField="Contacto" HeaderText="Contato" SortExpression="Contacto" />
                         <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                        <asp:BoundField DataField="Lingua" HeaderText="Lingua" SortExpression="Lingua" />
-                        <asp:BoundField DataField="EmailMoodle" HeaderText="EmailMoodle" SortExpression="EmailMoodle" />
+                        <asp:BoundField DataField="Lingua" HeaderText="Língua" SortExpression="Lingua" />
+                        <asp:BoundField DataField="EmailMoodle" HeaderText="Email Moodle" SortExpression="EmailMoodle" />
                         <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
                         <asp:BoundField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
                     </Columns>

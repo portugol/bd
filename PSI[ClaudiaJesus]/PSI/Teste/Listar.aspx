@@ -31,7 +31,7 @@
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" InsertVisible="False" ReadOnly="True" />
                         <asp:BoundField DataField="Tipo_Teste" HeaderText="Tipo_Teste" SortExpression="Tipo_Teste" />
-                        <asp:BoundField DataField="UtilizadoresId" HeaderText="UtilizadoresId" SortExpression="UtilizadoresId" />
+                        <asp:BoundField DataField="UtilizadoresId" HeaderText="Id Utilizador" SortExpression="UtilizadoresId" />
                         <asp:BoundField DataField="Nota" HeaderText="Nota" SortExpression="Nota" />
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" />

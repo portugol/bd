@@ -4,7 +4,7 @@
  
     <table style="background-color:#F0F0F0;">
         <tr>
-            <td rowspan="6">
+            <td rowspan="7">
                    <asp:Menu ID="Menu1" runat="server" DataSourceID="XmlDataSource_PSI" StaticSubMenuIndent="10px" BackColor="#E3EAEB" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#666666">
                         <DataBindings>
                             <asp:MenuItemBinding DataMember="item" NavigateUrlField="url" TextField="textoParaEcra" />
@@ -20,7 +20,7 @@
                     <asp:XmlDataSource ID="XmlDataSource_PSI" runat="server" DataFile="~/menu/menu_Admin.xml" XPath="/menu/*"></asp:XmlDataSource>
             </td>
             <td rowspan="6" style="width: 50px"></td>
-            <td colspan="3" style="font-weight: bold; color:#ffffff; font-size: 14px; font-family: Verdana; background-color: #356bb3">Inserir Capitulos</td>
+            <td colspan="3" style="font-weight: bold; color:#ffffff; font-size: 14px; font-family: Verdana; background-color: #356bb3">Inserir Capítulos</td>
         </tr>
         <tr>
             <td style="width: 158px">
@@ -43,7 +43,7 @@
             <td style="width: 158px; text-align: left; height: 14px;">
                 <asp:TextBox ID="txt_Descricao" runat="server" Height="66px" TextMode="MultiLine" Width="191px"></asp:TextBox></td>
             <td style="width: 20px; text-align: left; height: 14px;">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_Descricao"
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_Descricao"
                     ErrorMessage="(*)"></asp:RequiredFieldValidator></td>
         </tr>
         <tr>
@@ -55,7 +55,7 @@
             </td>
             <td style="width: 158px; height: 23px; text-align: right">
                 &nbsp;<asp:Button ID="Bt_Limpar" runat="server" BackColor="Silver" Font-Names="Verdana" Font-Size="12px" OnClick="bt_Limpar" Text="Limpar" Width="58px" />
-                <asp:Button ID="Bt_Inserir" runat="server" BackColor="Silver" Font-Names="Verdana" Font-Size="12px" OnClick="bt_Inserir" Text="Inserir" Width="87px" OnClientClick="return confirm('Tem a certeza que quer inserir este registo?');"/></td>
+                <asp:Button ID="Bt_Gravar" runat="server" BackColor="Silver" Font-Names="Verdana" Font-Size="12px" OnClick="bt_Gravar" Text="Gravar" Width="87px" OnClientClick="return confirm('Tem a certeza que quer gravar este registo?');"/></td>
             <td style="width: 20px; height: 23px; text-align: right">
             </td>
         </tr>
