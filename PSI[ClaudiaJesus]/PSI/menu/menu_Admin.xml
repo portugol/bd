@@ -1,59 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
     <item textoParaEcra="Início" url="~/Default.aspx" descricaoUrl="página de Início" imagemUrl=""></item>
-    <item textoParaEcra="Administração" url="#" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Listar Utilizadores" url="~/Utilizadores/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Listar Tipo Utilizador" url="~/Tipo_User/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Adicionar Tipo Utilizador" url="~/Tipo_User/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Editar Tipo Utilizador" url="~/Tipo_User/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Apagar Tipo Utilizador" url="~/Tipo_User/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Utilizadores" url="~/Utilizadores/Listar.aspx" descricaoUrl="" imagemUrl="">
         </item>
-    <item textoParaEcra="Lingua" url="#" descricaoUrl="" imagemUrl="">
-      <item textoParaEcra="Listar Linguas" url="~/Lingua/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
-      <item textoParaEcra="Adicionar Linguas" url="~/Lingua/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-      <item textoParaEcra="Editar Linguas" url="~/Lingua/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
-      <item textoParaEcra="Apagar Linguas" url="~/Lingua/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Tipo Utilizadores" url="~/Tipo_User/Listar.aspx" descricaoUrl="" imagemUrl="">        
+      <item textoParaEcra="Adicionar Tipo Utilizador" url="~/Tipo_User/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-    <item textoParaEcra="Capitulo" url="#" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Apagar Capitulo" url="~/Capitulo/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Editar Capitulo" url="~/Capitulo/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Adicionar Capitulo" url="~/Capitulo/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Listar Capitulos" url="~/Capitulo/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
+  <item textoParaEcra="Língua" url="~/Lingua/Listar.aspx" descricaoUrl="" imagemUrl="">
+      <item textoParaEcra="Adicionar Línguas" url="~/Lingua/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-    <item textoParaEcra="Perguntas" url="#" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Apagar Perguntas" url="~/Perguntas/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Editar Perguntas" url="~/Perguntas/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Capítulo" url="~/Capitulo/Listar.aspx" descricaoUrl="" imagemUrl="">
+      <item textoParaEcra="Adicionar Capítulo" url="~/Capitulo/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
+    </item>
+    <item textoParaEcra="Perguntas" url="~/Perguntas/Listar.aspx" descricaoUrl="" imagemUrl="">
         <item textoParaEcra="Adicionar Perguntas" url="~/Perguntas/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
         <item textoParaEcra="Listar Perguntas" url="~/Perguntas/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-    <item textoParaEcra="Solucao" url="#" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Apagar Solucao" url="~/Solucao/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Editar Solucao" url="~/Solucao/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Adicionar Solucao" url="~/Solucao/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Listar Solucao" url="~/Solucao/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Teste" url="~/Teste/Listar.aspx" descricaoUrl="" imagemUrl="">
+      <item textoParaEcra="Gerar Teste" url="~/Teste/Teste.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-    <item textoParaEcra="Teste" url="#" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Listar Testes" url="~/Teste/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Listar Tipo Testes" url="~/Tipo_Teste/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Tipo Teste" url="~/Tipo_Teste/Listar.aspx" descricaoUrl="" imagemUrl="">
         <item textoParaEcra="Adicionar Tipo Testes" url="~/Tipo_Teste/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Editar Tipo Testes" url="~/Tipo_Teste/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-    <item textoParaEcra="Tipo Pergunta" url="#" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Apagar Tipo Pergunta" url="~/Tipo_Perg/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Editar Tipo Pergunta" url="~/Tipo_Perg/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Tipo Pergunta" url="~/Tipo_Perg/Listar.aspx" descricaoUrl="" imagemUrl="">
         <item textoParaEcra="Adicionar Tipo Pergunta" url="~/Tipo_Perg/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Listar Tipo Pergunta" url="~/Tipo_Perg/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-    <item textoParaEcra="Linguagens Programação" url="#" descricaoUrl="" imagemUrl="">
-      <item textoParaEcra="Apagar Linguagem Prog" url="~/Linguagem_Prog/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
-      <item textoParaEcra="Editar Linguagem Prog" url="~/Linguagem_Prog/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
-      <item textoParaEcra="Adicionar Linguagem Prog" url="~/Linguagem_Prog/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-      <item textoParaEcra="Listar Linguagem Prog" url="~/Linguagem_Prog/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
+    <item textoParaEcra="Linguagens Programação" url="~/Linguagem_Prog/Listar.aspx" descricaoUrl="" imagemUrl="">
+        <item textoParaEcra="Adicionar Linguagem Prog" url="~/Linguagem_Prog/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-  <item textoParaEcra="Resolução" url="#" descricaoUrl="" imagemUrl="">
-    <item textoParaEcra="Apagar Resolução" url="~/Resolucao/Apagar.aspx" descricaoUrl="" imagemUrl=""></item>
-    <item textoParaEcra="Editar Resolução" url="~/Resolucao/Editar.aspx" descricaoUrl="" imagemUrl=""></item>
-    <item textoParaEcra="Adicionar Resolução" url="~/Resolucao/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-    <item textoParaEcra="Listar Resolução" url="~/Resolucao/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
-  </item>
 </menu>
