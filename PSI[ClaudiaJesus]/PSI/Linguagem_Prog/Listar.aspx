@@ -25,11 +25,36 @@
                 
                 <asp:GridView ID="GrdvList_LingProgList" runat="server" AllowPaging="True" 
                     AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" 
-                    DataSourceID="SqlDataSource_LingProgList" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" DataKeyNames="Id" EnableModelValidation="True">
+                    DataSourceID="SqlDataSource_LingProgList" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" DataKeyNames="Id" EnableModelValidation="True" Width="386px">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" InsertVisible="False" ReadOnly="True" />
-                        <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" InsertVisible="False" ReadOnly="True" />
+                        <asp:TemplateField HeaderText="Id">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_Id" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Nome">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txt_Nome" runat="server" Text='<%# Bind("Nome") %>'></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txt_Nome"
+                                    ErrorMessage="(*)"></asp:RequiredFieldValidator>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_Nome" runat="server" Text='<%# Bind("Nome") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <EditItemTemplate>
+                                <asp:Button ID="bt_guardar" runat="server" Text="Guardar" CommandName="Update"/>
+                                <asp:Button ID="bt_cancelar" runat="server" Text="Cancelar" CommandName="Cancel"/>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="bt_editar" runat="server" Text="Editar" CommandName="Edit"/>
+                                <asp:Button ID="bt_eliminar" runat="server" Text="Eliminar" CommandName="Delete" OnClientClick="return confirm('Tem a certeza que quer eliminar este registo?');"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>        
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" />
                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -40,7 +65,20 @@
                 <asp:SqlDataSource ID="SqlDataSource_LingProgList" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>" 
                     SelectCommand="SELECT * FROM linguagens_prog"
-                    ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
+                    DeleteCommand="DELETE FROM linguagens_prog WHERE Id = @original_Id"
+                    UpdateCommand="UPDATE linguagens_prog SET Nome = @Nome WHERE Id = @original_Id AND Nome = @original_Nome" ConflictDetection="CompareAllValues" 
+                    InsertCommand="INSERT INTO linguagens_prog (Nome) VALUES (@Nome)" OldValuesParameterFormatString="original_{0}"
+                    ProviderName="MySql.Data.MySqlClient">
+                   <UpdateParameters>
+                        <asp:Parameter Name="Nome" Type="String" />
+                        <asp:Parameter Name="original_Id" Type="Int32" />
+                        <asp:Parameter Name="original_Nome" Type="String" />
+                    </UpdateParameters>
+                     <DeleteParameters>
+                         <asp:Parameter Name="original_Id" Type="Int32"  />
+                         <asp:Parameter Name="original_Nome" Type="String" />
+                     </DeleteParameters>
+                </asp:SqlDataSource>
             </td>
         </tr>
     </table>

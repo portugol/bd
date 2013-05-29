@@ -30,11 +30,11 @@
         </tr>
         <tr>
             <td style="width: 178px; text-align: right; height: 19px;">
-                <asp:Label ID="lbl_Lingua" runat="server" Font-Names="Verdana" Font-Size="12px" Text="Lingua"></asp:Label></td>
+                <asp:Label ID="lbl_Lingua" runat="server" Font-Names="Verdana" Font-Size="12px" Text="Língua"></asp:Label></td>
             <td style="width: 158px; text-align: left; height: 19px;">
                 <asp:TextBox ID="txt_Lingua" runat="server"></asp:TextBox></td>
             <td style="width: 20px; text-align: left; height: 19px;">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Lingua"
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txt_Lingua"
                     ErrorMessage="(*)"></asp:RequiredFieldValidator></td>
         </tr>
         <tr>
@@ -46,7 +46,7 @@
             </td>
             <td style="width: 158px; height: 23px; text-align: right">
                 &nbsp;<asp:Button ID="Bt_Limpar" runat="server" BackColor="Silver" Font-Names="Verdana" Font-Size="12px" OnClick="bt_Limpar" Text="Limpar" Width="58px" />
-                <asp:Button ID="Bt_Inserir" runat="server" BackColor="Silver" Font-Names="Verdana" Font-Size="12px" OnClick="bt_Inserir" Text="Inserir" Width="87px" OnClientClick="return confirm('Tem a certeza que quer inserir este registo?');"/></td>
+                <asp:Button ID="Bt_Gravar" runat="server" BackColor="Silver" Font-Names="Verdana" Font-Size="12px" OnClick="bt_Gravar" Text="Gravar" Width="87px" OnClientClick="return confirm('Tem a certeza que quer gravar este registo?');"/></td>
             <td style="width: 20px; height: 23px; text-align: right">
             </td>
         </tr>
