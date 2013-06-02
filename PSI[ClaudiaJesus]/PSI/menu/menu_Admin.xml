@@ -6,26 +6,25 @@
     <item textoParaEcra="Tipo Utilizadores" url="~/Tipo_User/Listar.aspx" descricaoUrl="" imagemUrl="">        
       <item textoParaEcra="Adicionar Tipo Utilizador" url="~/Tipo_User/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
-  <item textoParaEcra="Língua" url="~/Lingua/Listar.aspx" descricaoUrl="" imagemUrl="">
-      <item textoParaEcra="Adicionar Línguas" url="~/Lingua/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-    </item>
     <item textoParaEcra="Capítulo" url="~/Capitulo/Listar.aspx" descricaoUrl="" imagemUrl="">
       <item textoParaEcra="Adicionar Capítulo" url="~/Capitulo/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
     <item textoParaEcra="Perguntas" url="~/Perguntas/Listar.aspx" descricaoUrl="" imagemUrl="">
         <item textoParaEcra="Adicionar Perguntas" url="~/Perguntas/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
-        <item textoParaEcra="Listar Perguntas" url="~/Perguntas/Listar.aspx" descricaoUrl="" imagemUrl=""></item>
-    </item>
-    <item textoParaEcra="Teste" url="~/Teste/Listar.aspx" descricaoUrl="" imagemUrl="">
-      <item textoParaEcra="Gerar Teste" url="~/Teste/Teste.aspx" descricaoUrl="" imagemUrl=""></item>
-    </item>
-    <item textoParaEcra="Tipo Teste" url="~/Tipo_Teste/Listar.aspx" descricaoUrl="" imagemUrl="">
-        <item textoParaEcra="Adicionar Tipo Testes" url="~/Tipo_Teste/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
     <item textoParaEcra="Tipo Pergunta" url="~/Tipo_Perg/Listar.aspx" descricaoUrl="" imagemUrl="">
         <item textoParaEcra="Adicionar Tipo Pergunta" url="~/Tipo_Perg/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
+    <item textoParaEcra="Tipo Teste" url="~/Tipo_Teste/Listar.aspx" descricaoUrl="" imagemUrl="">
+        <item textoParaEcra="Adicionar Tipo Testes" url="~/Tipo_Teste/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
+    </item>    
+    <item textoParaEcra="Língua" url="~/Lingua/Listar.aspx" descricaoUrl="" imagemUrl="">
+      <item textoParaEcra="Adicionar Línguas" url="~/Lingua/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
+    </item>
     <item textoParaEcra="Linguagens Programação" url="~/Linguagem_Prog/Listar.aspx" descricaoUrl="" imagemUrl="">
         <item textoParaEcra="Adicionar Linguagem Prog" url="~/Linguagem_Prog/Inserir.aspx" descricaoUrl="" imagemUrl=""></item>
+    </item>
+    <item textoParaEcra="Teste" url="~/Teste/Listar.aspx" descricaoUrl="" imagemUrl="">
+        <item textoParaEcra="Gerar Teste" url="~/Teste/Teste.aspx" descricaoUrl="" imagemUrl=""></item>
     </item>
 </menu>
