@@ -6,21 +6,21 @@
     <table>
         <tr>
             <td rowspan="2">
-                <asp:Menu ID="Menu1" runat="server" DataSourceID="XmlDataSource_PSI" StaticSubMenuIndent="10px" BackColor="#E3EAEB" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#666666">
-                    <DataBindings>
-                        <asp:MenuItemBinding DataMember="item" NavigateUrlField="url" TextField="textoParaEcra" />
-                    </DataBindings>
-                    <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
-                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                    <DynamicMenuStyle BackColor="#E3EAEB" />
-                    <DynamicSelectedStyle BackColor="#1C5E55" />
-                    <StaticHoverStyle BackColor="#666666" ForeColor="White" />
-                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                    <StaticSelectedStyle BackColor="#1C5E55" />
-                </asp:Menu>
-                <asp:XmlDataSource ID="XmlDataSource_PSI" runat="server" DataFile="~/menu/menu_Admin.xml" XPath="/menu/*"></asp:XmlDataSource>
+                   <asp:Menu ID="Menu1" runat="server" DataSourceID="XmlDataSource_PSI" StaticSubMenuIndent="10px" BackColor="#636363" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#FFFFFF">
+                        <DataBindings>
+                            <asp:MenuItemBinding DataMember="item" NavigateUrlField="url" TextField="textoParaEcra" />
+                        </DataBindings>
+                        <DynamicHoverStyle BackColor="#C0C0C0" ForeColor="White" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicMenuStyle BackColor="#636363" />
+                        <DynamicSelectedStyle BackColor="#1C5E55" />
+                        <StaticHoverStyle BackColor="#C0C0C0" ForeColor="White" />
+                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <StaticSelectedStyle BackColor="#1C5E55" />
+                    </asp:Menu>
+                    <asp:XmlDataSource ID="XmlDataSource_PSI" runat="server" DataFile="~/menu/menu_Admin.xml" XPath="/menu/*"></asp:XmlDataSource>
             </td>
-            <td style="width: 104%; font-weight: bold; font-size: 14px; font-family: Verdana; color: #ffffff; background-color: #356bb3">Listagem das Perguntas</td>
+            <td style="width: 104%; font-weight: bold; font-size: 14px; font-family: Verdana; color: #ffffff; background-color: #ca5100">Listagem das Perguntas</td>
         </tr>
         <tr>
             <td style="width: 104%">

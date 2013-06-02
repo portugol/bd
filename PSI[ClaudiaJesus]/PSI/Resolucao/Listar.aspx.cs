@@ -110,7 +110,7 @@ public partial class Resolucao_Listar : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            lbl_erro.Text = "Houve um erro na introdução dos dados - " + ex.Message;
+            lbl_erro.Text = "Houve um erro na introdução dos dados";
             lbl_erro.Visible = true;
         }
     }

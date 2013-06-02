@@ -50,8 +50,7 @@
                     &nbsp;
                 </td>
                 <td colspan="2" id="td_top_centro" align="right">
-                    <div id="clock" align="right">
-                    </div>
+                    <div id="clock" align="right" style="background-color:#636363"></div>
                 </td>
                 <td width="15" background="Images/md_r5_c4.gif">
                     &nbsp;
