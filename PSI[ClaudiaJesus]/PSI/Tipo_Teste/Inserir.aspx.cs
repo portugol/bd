@@ -16,8 +16,8 @@ public partial class TipoTeste_Inserir: System.Web.UI.Page
         MySqlConnection MyConn = new MySqlConnection(strConn_Access);
 
         string sqlString = "INSERT INTO tipo_teste " +
-                "(Data_Inicio, Data_Fim, Duracao, Descricao, Max_Perguntas) " +
-                "VALUES (@Data_Inicio, @Data_Fim, @Duracao, @Descricao, @Max_Perguntas);";
+                "(Data_Inicio, Data_Fim, Duracao, Descricao) " +
+                "VALUES (@Data_Inicio, @Data_Fim, @Duracao, @Descricao);";
 
 
         MySqlCommand Cmd = new MySqlCommand(sqlString, MyConn);
@@ -26,7 +26,6 @@ public partial class TipoTeste_Inserir: System.Web.UI.Page
         Cmd.Parameters.AddWithValue("@Data_Fim", txt_DataFim.Text);
         Cmd.Parameters.AddWithValue("@Duracao", txt_Duracao.Text);
         Cmd.Parameters.AddWithValue("@Descricao", txt_Descricao.Text);
-        Cmd.Parameters.AddWithValue("@Max_Perguntas", txt_MaxPerguntas.Text);
         try
         {
             MyConn.Open();
@@ -52,7 +51,6 @@ public partial class TipoTeste_Inserir: System.Web.UI.Page
         txt_DataFim.Text = "";
         txt_Duracao.Text = "";
         txt_Descricao.Text = "";
-        txt_MaxPerguntas.Text = "";
         lbl_erro.Visible = false;
     }
 }
