@@ -93,8 +93,7 @@
             <td style="width: 120px; height: 23px;"></td>
             <td style="width: 913px; height: 23px;">&nbsp;<asp:Button ID="Bt_Limpar" runat="server" BackColor="Silver" Font-Names="Verdana"
                 Font-Size="12px" OnClick="bt_Limpar" Text="Limpar" Width="58px" />
-                <asp:Button ID="Bt_Gravar" runat="server" Text="Gravar" BackColor="Silver" Font-Names="Verdana"
-                    Font-Size="12px" OnClick="bt_Gravar" Width="87px" OnClientClick="return confirm('Tem a certeza que quer gravar este registo?');" /></td>
+                </td>
             <td style="width: 152px; height: 23px; text-align: right"></td>
         </tr>
         <tr>

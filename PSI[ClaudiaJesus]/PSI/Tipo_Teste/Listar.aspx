@@ -71,17 +71,7 @@
                             <ItemTemplate>
                                 <asp:Label ID="lbl_Descricao" runat="server" Text='<%# Bind("Descricao") %>'></asp:Label>
                             </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Max Perguntas">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_MaxPerguntas" runat="server" Text='<%# Bind("Max_Perguntas") %>'></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_MaxPerguntas"
-                                    ErrorMessage="(*)"></asp:RequiredFieldValidator>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_MaxPerguntas" runat="server" Text='<%# Bind("Max_Perguntas") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>                      
                         <asp:TemplateField>
                             <EditItemTemplate>
                                 <asp:Button ID="bt_guardar" runat="server" Text="Guardar" CommandName="Update"/>
@@ -103,21 +93,19 @@
                 <asp:SqlDataSource ID="SqlDataSource_TipoTeste" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>" 
                     SelectCommand="SELECT * FROM tipo_teste" 
-                    UpdateCommand="UPDATE tipo_teste SET Data_Inicio = @Data_Inicio, Data_Fim = @Data_Fim, Duracao = @Duracao, Descricao = @Descricao, Max_Perguntas = @Max_Perguntas WHERE Id = @original_Id"
-                    InsertCommand="INSERT INTO tipo_teste (Data_Inicio, Data_Fim, Duracao, Descricao, Max_Perguntas) VALUES (@Data_Inicio, @Data_Fim, @Duracao, @Descricao, @Max_Perguntas)" OldValuesParameterFormatString="original_{0}"
+                    UpdateCommand="UPDATE tipo_teste SET Data_Inicio = @Data_Inicio, Data_Fim = @Data_Fim, Duracao = @Duracao, Descricao = @Descricao WHERE Id = @original_Id"
+                    InsertCommand="INSERT INTO tipo_teste (Data_Inicio, Data_Fim, Duracao, Descricao) VALUES (@Data_Inicio, @Data_Fim, @Duracao, @Descricao)" OldValuesParameterFormatString="original_{0}"
                     ProviderName="MySql.Data.MySqlClient">
                     <UpdateParameters>
                         <asp:Parameter Name="Data_Inicio" Type="DateTime" />
                         <asp:Parameter Name="Data_Fim" Type="DateTime" />
                         <asp:Parameter Name="Duracao" Type="String" />
                         <asp:Parameter Name="Descricao" Type="String" />
-                        <asp:Parameter Name="Max_Perguntas" Type="Int32" />
                         <asp:Parameter Name="original_Id" Type="Int32" />
                         <asp:Parameter Name="original_Data_Inicio" Type="DateTime" />
                         <asp:Parameter Name="original_Data_Fim" Type="DateTime" />
                         <asp:Parameter Name="original_Duracao" Type="String" />
                         <asp:Parameter Name="original_Descricao" Type="String" />
-                        <asp:Parameter Name="original_Max_Perguntas" Type="Int32" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
             </td>

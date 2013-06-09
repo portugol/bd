@@ -5,6 +5,7 @@ using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections;
 
 
 public partial class Teste : System.Web.UI.Page
@@ -96,25 +97,43 @@ public partial class Teste : System.Web.UI.Page
 
             MySqlCommand Cmd = new MySqlCommand(strConn_Access, MyConn);
 
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT perguntas.Pergunta FROM perguntas, enunciados WHERE perguntas.Dificuldade = enunciados.Dificuldade AND perguntas.CapituloId = enunciados.Capitulo order by Rand()  LIMIT " + Convert.ToInt32(txt_nperg.Text) + "", MyConn);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT Sum(Num_Perguntas),Capitulo,Dificuldade FROM enunciados  where Id_Tipoteste="+ Drop_Descricao.SelectedItem.Value + " group by Capitulo,Dificuldade",MyConn);
 
-
-            string html = Server.MapPath(Request.ApplicationPath) + "\\Teste.HTML";
-            System.IO.StreamWriter file = new System.IO.StreamWriter(html);
-            string pdf = Server.MapPath(Request.ApplicationPath) + "\\Teste"+ j +".Pdf";
-
+            ArrayList arrayListCap = new ArrayList();
+            ArrayList arrayListDif = new ArrayList();
+            ArrayList arrayListSoma= new ArrayList();
             try
             {
                 MyConn.Open();
+
 
                 MySqlDataReader reader = sqlCommand.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    for (int i = 0; i < reader.FieldCount; i++)
+                    arrayListSoma.Add(reader[0]);
+                    arrayListCap.Add(reader[1]);
+                    arrayListDif.Add(reader[2]);
+                    
+                }
+                reader.Close();
+            string html = Server.MapPath(Request.ApplicationPath) + "\\Teste.HTML";
+            System.IO.StreamWriter file = new System.IO.StreamWriter(html);
+            string pdf = Server.MapPath(Request.ApplicationPath) + "\\Teste"+ j +".Pdf";
+
+                for (int i = 0; i < arrayListDif.Count; i++)
+                {
+
+                    sqlCommand = new MySqlCommand("SELECT perguntas.Pergunta FROM perguntas, enunciados WHERE perguntas.Dificuldade = " + 
+                        arrayListDif[i] + " AND perguntas.CapituloId = " + arrayListCap[i] + " order by Rand()  LIMIT " + Convert.ToInt32(arrayListSoma[i]), MyConn);
+                   reader = sqlCommand.ExecuteReader();
+
+
+                    while (reader.Read())
                     {
-                        file.WriteLine(reader[i] + "\n");
+                        file.WriteLine(reader[0] + "\n");
                     }
+                    reader.Close();
                 }
 
                 file.Close();
@@ -122,8 +141,6 @@ public partial class Teste : System.Web.UI.Page
                 DuoDimension.HtmlToPdf conv = new DuoDimension.HtmlToPdf();
                 conv.OpenHTML(html);
                 conv.SavePDF(pdf);
-
-
             }
             catch (Exception ex)
             {
@@ -201,7 +218,6 @@ public partial class Teste : System.Web.UI.Page
         Cmd.Parameters.AddWithValue("@Num_Perguntas", txt_nperg.Text);
         Cmd.Parameters.AddWithValue("@Id_Tipoteste", lbl_idDescricao.Text);
 
-
         try
         {
             MyConn.Open();
@@ -219,7 +235,6 @@ public partial class Teste : System.Web.UI.Page
             lbl_erro.Text = "Houve um erro na introdução dos dados";
             lbl_erro.Visible = true;
         }
-
 
         string sqlString2 = "SELECT * FROM enunciados WHERE Id_Tipoteste = " + lbl_idDescricao.Text;
 
