@@ -20,18 +20,16 @@
                     <asp:XmlDataSource ID="XmlDataSource_PSI" runat="server" DataFile="~/menu/menu_Admin.xml" XPath="/menu/*"></asp:XmlDataSource>
                 </td>
                 <td>
-                    <p style="text-align: center">
+                    <p style="text-align: center; border-top-style: groove; border-right-style: groove; border-left-style: groove; border-top-width: medium; border-right-width: medium; border-left-width: medium; border-top-color: #000000; border-right-color: #000000; border-left-color: #000000;">
                         <asp:Label ID="lbl_Descricao" runat="server" Text="Descricao" Style="font-size: medium; color: #666666; font-weight: 700;"></asp:Label>
                         <asp:DropDownList ID="Drop_Descricao" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Descricao" DataTextField="Descricao" DataValueField="Id" AppendDataBoundItems="true" OnSelectedIndexChanged="Drop_Descricao_SelectedIndexChanged" EnableViewState="true">
                             <asp:ListItem Value="0" Selected="True">Escolha uma opção</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator InitialValue="0" ID="RequiredFieldValidator1" runat="server" ControlToValidate="Drop_Descricao"
-                            ErrorMessage="(*)"></asp:RequiredFieldValidator>
                         <asp:SqlDataSource ID="SqlDataSource_Descricao" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
                             SelectCommand="SELECT Id, Descricao FROM tipo_teste"
                             ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
                         <br />
-                        <asp:Label ID="lbl_idDescricao" runat="server" Visible="true"></asp:Label>
+                        <asp:Label ID="lbl_idDescricao" runat="server" Visible="false"></asp:Label>
                         <br />
                         <span style="font-size: medium; color: #666666;"><strong>Data Inicio:</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lbl_DataInicio" runat="server" Text="" Style="font-weight: 700; color: #666666"></asp:Label>
@@ -39,26 +37,22 @@
                         <span style="font-size: medium"><span style="color: #666666"><strong>Data Fim:</strong></span>&nbsp;</span>&nbsp;&nbsp;
                         <asp:Label ID="lbl_DataFim" runat="server" Text="" Style="font-weight: 700; color: #666666"></asp:Label>
                         </p>
-                        <p style="text-align: center">
+                        <p style="text-align: center; border-left-style: groove; border-right-style: groove; border-right-width: medium; border-left-width: medium; border-right-color: #000000; border-left-color: #000000;">
                         <asp:Label ID="lbl_Capitulo" runat="server" Text="Capitulo" Style="font-size: medium; font-weight: 700; color: #666666;"></asp:Label>
                         <asp:DropDownList ID="Drop_Capitulo" runat="server" DataSourceID="SqlDataSource_CapList" DataTextField="Nome" DataValueField="Id" AppendDataBoundItems="true" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="Drop_Capitulo_SelectedIndexChanged">
                             <asp:ListItem Value="0" Selected="True">Escolha uma opção</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Label ID="lbl_cap" runat="server" Text="" Visible="true"></asp:Label>
-                        <asp:RequiredFieldValidator InitialValue="0" ID="RequiredFieldValidator2" runat="server" ControlToValidate="Drop_Capitulo"
-                            ErrorMessage="(*)"></asp:RequiredFieldValidator>
+                        <asp:Label ID="lbl_cap" runat="server" Text="" Visible="false"></asp:Label>
                         <asp:SqlDataSource ID="SqlDataSource_CapList" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
                             ProviderName="MySql.Data.MySqlClient"
                             SelectCommand="SELECT Nome, Id FROM capitulo"></asp:SqlDataSource>
                     </p>
-                    <p style="text-align: center">
+                    <p style="text-align: center; border-left-style: groove; border-right-style: groove; border-right-width: medium; border-left-width: medium; border-right-color: #000000; border-left-color: #000000;">
                         <asp:Label ID="lbl_Dificuldade" runat="server" Text="Dificuldade" Style="font-size: medium; font-weight: 700; color: #666666;"></asp:Label>
                         <asp:DropDownList ID="Drop_Dificuldade" runat="server" DataSourceID="SqlDataSource_Dificuldade" DataTextField="Dificuldade" DataValueField="Dificuldade" AppendDataBoundItems="true" OnSelectedIndexChanged="Drop_Dificuldade_SelectedIndexChanged" AutoPostBack="true" EnableViewState="true">
                             <asp:ListItem Value="0" Selected="True">Escolha uma opção</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator InitialValue="0" ID="RequiredFieldValidator3" runat="server" ControlToValidate="Drop_Dificuldade"
-                            ErrorMessage="(*)"></asp:RequiredFieldValidator>
-                        <asp:Label ID="lbl_dif" runat="server" Text="" Visible="true"></asp:Label>
+                        <asp:Label ID="lbl_dif" runat="server" Text="" Visible="false"></asp:Label>
                         <asp:SqlDataSource ID="SqlDataSource_Dificuldade" runat="server"
                             ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
                             SelectCommand="SELECT DISTINCT Dificuldade FROM perguntas" ProviderName="MySql.Data.MySqlClient">
@@ -66,12 +60,14 @@
                         <asp:Label ID="lbl_NumPerg" runat="server" Text="NºPerguntas" Style="font-size: medium; font-weight: 700; color: #666666;"></asp:Label>
                         <asp:TextBox ID="txt_nperg" runat="server"></asp:TextBox>
                     </p>
-                    <asp:Label ID="lbl_erro" runat="server" Text="" Style="color: #FF0000"></asp:Label>
-                    <br />
-                    <br />
-                    <p style="text-align: center">
+                    <p style="text-align: center; border-right-style: groove; border-bottom-style: groove; border-left-style: groove; border-right-width: medium; border-bottom-width: medium; border-left-width: medium; border-right-color: #000000; border-bottom-color: #000000; border-left-color: #000000;">
                         <asp:Button ID="bt_Adicionar" runat="server" Text="Adicionar Mais" OnClick="bt_Adicionar_Click"></asp:Button>
+                    <p style="text-align: center">
                     </p>
+                    <asp:Label ID="lbl_erro" runat="server" Text="" Style="color: #FF0000"></asp:Label>   
+                    </p>
+                    <p style="text-align: center">
+                        &nbsp;</p>
                     <asp:GridView ID="Grdv_Enunciado" runat="server" AllowPaging="True"
                         Visible="false" AllowSorting="True" AutoGenerateColumns="False" HorizontalAlign="center"
                         DataSourceID="SqlDataSource_Enunciado" CellPadding="4" ForeColor="Black"
@@ -83,6 +79,11 @@
                             <asp:BoundField DataField="Dificuldade" HeaderText="Dificuldade" SortExpression="Dificuldade" />
                             <asp:BoundField DataField="Num_Perguntas" HeaderText="Numero Perguntas" SortExpression="Num_Perguntas" />
                             <asp:BoundField DataField="Id_Tipoteste" HeaderText="Id Tipo Teste" SortExpression="Id_Tipoteste" />
+                            <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="bt_eliminar" runat="server" Text="Eliminar" CommandName="Delete" OnClientClick="return confirm('Tem a certeza que quer eliminar este registo?');"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         </Columns>
                         <FooterStyle BackColor="#CCCC99" />
                         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -92,7 +93,17 @@
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSource_Enunciado" runat="server"
                         ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
-                        SelectCommand="SELECT * FROM enunciados" ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
+                        SelectCommand="SELECT * FROM enunciados" 
+                        DeleteCommand="DELETE FROM enunciados WHERE Id_Configuracao = @original_Id_Configuracao" OldValuesParameterFormatString="original_{0}"
+                        ProviderName="MySql.Data.MySqlClient">
+                        <DeleteParameters>
+                        <asp:Parameter Name="original_Id_Configuracao" Type="Int32" />
+                        <asp:Parameter Name="original_Capitulo" Type="Int32" />
+                        <asp:Parameter Name="original_Dificuldade" Type="Int32" />
+                        <asp:Parameter Name="original_Num_Perguntas" Type="Int32" />
+                        <asp:Parameter Name="original_Id_Tipoteste" Type="Int32" />
+                    </DeleteParameters>
+                    </asp:SqlDataSource>
                     <br />
                     <asp:Label ID="lbl_Numtestes" runat="server" Text="Número Testes Gerar:" Style="font-weight: 700; color: #666666; font-size: medium;"></asp:Label>
                     <asp:TextBox ID="txt_Numtestes" runat="server"></asp:TextBox>
