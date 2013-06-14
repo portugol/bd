@@ -4,21 +4,6 @@
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit.HTMLEditor" TagPrefix="cc1" %>
     <table>
         <tr>
-            <td rowspan="2">
-                   <asp:Menu ID="Menu1" runat="server" DataSourceID="XmlDataSource_PSI" StaticSubMenuIndent="10px" BackColor="#636363" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#FFFFFF">
-                        <DataBindings>
-                            <asp:MenuItemBinding DataMember="item" NavigateUrlField="url" TextField="textoParaEcra" />
-                        </DataBindings>
-                        <DynamicHoverStyle BackColor="#C0C0C0" ForeColor="White" />
-                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <DynamicMenuStyle BackColor="#636363" />
-                        <DynamicSelectedStyle BackColor="#1C5E55" />
-                        <StaticHoverStyle BackColor="#C0C0C0" ForeColor="White" />
-                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <StaticSelectedStyle BackColor="#1C5E55" />
-                    </asp:Menu>
-                    <asp:XmlDataSource ID="XmlDataSource_PSI" runat="server" DataFile="~/menu/menu_Admin.xml" XPath="/menu/*"></asp:XmlDataSource>
-            </td>
             <td style="width: 100%; font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">
                 Listagem das Resoluções</td>
         </tr>
@@ -131,7 +116,7 @@
                 <br />
                 <div>
                    <asp:Label ID="lbl_Resolucao" runat="server" Text="Resolução" Font-Names="Verdana" Font-Size="12px" Visible="False"></asp:Label>
-                   <cc1:Editor ID="Editor" runat="server" width="500px" height="160px" Visible="False" />
+                   <cc1:Editor ID="Editor" runat="server" width="500px" height="160px" Visible="False" NoUnicode="True"/>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Editor"
                         ErrorMessage="(*)" Visible="False"></asp:RequiredFieldValidator>
                 </div>

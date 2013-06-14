@@ -6,6 +6,12 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
+using System.IO;
+
 
 
 public partial class Teste : System.Web.UI.Page
@@ -114,40 +120,67 @@ public partial class Teste : System.Web.UI.Page
                     arrayListSoma.Add(reader[0]);
                     arrayListCap.Add(reader[1]);
                     arrayListDif.Add(reader[2]);
-                    
+
                 }
                 reader.Close();
-            string html = Server.MapPath(Request.ApplicationPath) + "\\Teste.HTML";
-            System.IO.StreamWriter file = new System.IO.StreamWriter(html);
-            string pdf = Server.MapPath(Request.ApplicationPath) + "\\Teste"+ j +".Pdf";
+                string html = Server.MapPath(Request.ApplicationPath) + "\\Teste.HTML";
+                System.IO.StreamWriter file = new System.IO.StreamWriter(html);
+                string pdf = Server.MapPath(Request.ApplicationPath) + "\\Teste" + j + ".Pdf";
+
+                int n = 1;
+
+                file.WriteLine(Editor.Content + "<br /><br />");
 
                 for (int i = 0; i < arrayListDif.Count; i++)
                 {
 
-                    sqlCommand = new MySqlCommand("SELECT perguntas.Pergunta FROM perguntas, enunciados WHERE perguntas.Dificuldade = " + 
-                        arrayListDif[i] + " AND perguntas.CapituloId = " + arrayListCap[i] + " order by Rand()  LIMIT " + Convert.ToInt32(arrayListSoma[i]), MyConn);
-                   reader = sqlCommand.ExecuteReader();
+                    sqlCommand = new MySqlCommand("SELECT perguntas.Pergunta FROM perguntas, enunciados WHERE perguntas.Dificuldade = " +
+                    arrayListDif[i] + " AND perguntas.CapituloId = " + arrayListCap[i] + " order by Rand()  LIMIT " + Convert.ToInt32(arrayListSoma[i]), MyConn);
+                    reader = sqlCommand.ExecuteReader();
 
+                    file.WriteLine("Grupo " + (i + 1) + "<br />");
+                    file.WriteLine("___________________________________________________________ <br />");
+                    file.WriteLine("<br />");
 
                     while (reader.Read())
                     {
-                        file.WriteLine(reader[0] + "\n");
+
+                        file.Write(n + " - " + reader[0]);
+                        n++;
                     }
+                    file.WriteLine("<br /><br /><br />");
                     reader.Close();
                 }
 
+
                 file.Close();
 
-                DuoDimension.HtmlToPdf conv = new DuoDimension.HtmlToPdf();
-                conv.OpenHTML(html);
-                conv.SavePDF(pdf);
+                Document doc = new Document(PageSize.A4, 80, 50, 30, 65);
+                var output = new FileStream(pdf,FileMode.Create);
+                PdfWriter.GetInstance(doc, output);
+
+                doc.Open();
+
+                string contents = "";
+                StreamReader sr;
+                sr = File.OpenText(html);
+                contents = sr.ReadToEnd();
+                sr.Close();
+                var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(contents), null);
+
+                foreach (var htmlElement in parsedHtmlElements)
+                doc.Add(htmlElement as IElement);
+
+                //Close your PDF
+                doc.Close();
             }
             catch (Exception ex)
             {
 
             }
-
-            finally { MyConn.Close(); }
+            finally { 
+                MyConn.Close();
+            }
         }
     }
 
