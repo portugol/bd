@@ -5,21 +5,6 @@
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit.HTMLEditor" TagPrefix="cc1" %>
     <table>
         <tr>
-            <td rowspan="2">
-                   <asp:Menu ID="Menu1" runat="server" DataSourceID="XmlDataSource_PSI" StaticSubMenuIndent="10px" BackColor="#636363" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#FFFFFF">
-                        <DataBindings>
-                            <asp:MenuItemBinding DataMember="item" NavigateUrlField="url" TextField="textoParaEcra" />
-                        </DataBindings>
-                        <DynamicHoverStyle BackColor="#C0C0C0" ForeColor="White" />
-                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <DynamicMenuStyle BackColor="#636363" />
-                        <DynamicSelectedStyle BackColor="#1C5E55" />
-                        <StaticHoverStyle BackColor="#C0C0C0" ForeColor="White" />
-                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <StaticSelectedStyle BackColor="#1C5E55" />
-                    </asp:Menu>
-                    <asp:XmlDataSource ID="XmlDataSource_PSI" runat="server" DataFile="~/menu/menu_Admin.xml" XPath="/menu/*"></asp:XmlDataSource>
-            </td>
             <td style="width: 104%; font-weight: bold; font-size: 14px; font-family: Verdana; color: #ffffff; background-color: #ca5100">Listagem das Perguntas</td>
         </tr>
         <tr>
@@ -36,7 +21,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Pergunta">
                             <EditItemTemplate>
-                                <cc1:Editor ID="Editor" runat="server" Content='<%# Bind("Pergunta") %>' Width="500px" />
+                                <cc1:Editor ID="Editor" runat="server" Content='<%# Bind("Pergunta") %>' Width="500px" NoUnicode="True" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Editor"
                                     ErrorMessage="(*)"></asp:RequiredFieldValidator>
                             </EditItemTemplate>
