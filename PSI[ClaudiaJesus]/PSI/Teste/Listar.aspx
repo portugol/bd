@@ -2,12 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table>
         <tr>
-            <td style="font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">
-                Listagem dos Testes</td>
+            <!--Título da tabela e respetivas formatações(cores,etc..)-->
+            <td style="font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">Listagem dos Testes</td>
         </tr>
         <tr>
-            <td>               
-                
+            <td>
+                <!--GridView: Mostra toda a informação da tabela teste existente na BD 
+                              (através de um DATASOURCE que contém um comando Select em MySQL)-->               
                 <asp:GridView ID="GrdvList_Teste" runat="server" AllowPaging="True" 
                     AllowSorting="True" AutoGenerateColumns="False" 
                     DataSourceID="SqlDataSource_Teste" CellPadding="4" ForeColor="Black" 
@@ -25,6 +26,9 @@
                     <RowStyle BackColor="#F7F7DE" />
                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                 </asp:GridView>
+
+                <!--SqlDataSource, onde são feitos os comandos em MySQL  
+                                SelectCommand: Comando em MySQL para efetuar a listagem dos testes existentes-->
                 <asp:SqlDataSource ID="SqlDataSource_Teste" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>" 
                     SelectCommand="SELECT * FROM teste" ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
@@ -32,4 +36,3 @@
         </tr>
     </table>
 </asp:Content>
-
