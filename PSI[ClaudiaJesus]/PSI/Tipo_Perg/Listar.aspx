@@ -2,11 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table>
         <tr>
-            <td style="font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">
-                Listagem do Tipo Perguntas</td>
+            <!--Título da tabela e respetivas formatações(cores,etc..)-->
+            <td style="font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">Listagem do Tipo Perguntas</td>
         </tr>
         <tr>
-            <td>               
+            <td>
+                <!--GridView: Mostra toda a informação da tabela Tipo Perg existente na BD 
+                              (através de um DATASOURCE que contém um comando Select em MySQL) 
+                    
+                    ItemTemplate: São os campos que pretendemos mostrar na GridView, mas com impossibilidade 
+                                  de serem alterados/editados/modificados, estão estáticos
+                    EditItemTemplate: São os campos que pretendemos mostrar na GridView, mas agora com possibilidade 
+                                      para serem alterados/editados/modificados, após ter-se clicado no botão de "Editar"-->
                 <asp:GridView ID="GrdvList_TipoPerg" runat="server" AllowPaging="True" 
                     AllowSorting="True" AutoGenerateColumns="False" 
                     DataSourceID="SqlDataSource_TipoPergList" CellPadding="4" ForeColor="Black" 
@@ -47,6 +54,17 @@
                     <RowStyle BackColor="#F7F7DE" />
                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                 </asp:GridView>
+
+                <!--SqlDataSource, onde são feitos os comandos em MySQL, para podermos editar 
+                                    (fazer update) informação contida na tabela assim como eliminar informação da mesma
+                
+                    SelectCommand: Comando em MySQL para efetuar a listagem dos Tipo Perg existentes
+                    UpdateCommand: Comando em MySQL chamado pelo botão editar, e que vai fazer o update na BD da tabela Tipo Perg
+                                   e dos campos modificados
+                    DeleteCommand: Comando em MySQL chamado pelo botão eliminar, para eliminar dados da tabela Tipo Perg
+                    
+                    DeleteParameters: São os campos a eliminar depois de efetuado o Deletecommand
+                    UpdateParameters: São os campos aos quais vamos fazer update (editar)-->
                 <asp:SqlDataSource ID="SqlDataSource_TipoPergList" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>" 
                     SelectCommand="SELECT * FROM Tipo_Perg" 

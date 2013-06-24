@@ -3,15 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Painel Administração</title>
+    <!-- Título da página -->
+    <title>Painel Administração</title> 
     <link href="Style/StyleMaster.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
 
+        //Função utilizada para inicializar o relógio, quando é aberto o Website
         function start() {
             refresh();
             window.setInterval("refresh()", 1000);
         }
-
+        //Função que atualiza as horas, minutos, e segundos do relógio
         function refresh() {
             var h, m, s, mes, horas, sep = ":";
             d = new Date();
@@ -35,31 +37,31 @@
                 <tr>
                     <td width="15" background="./Images/md_r2_c2.gif">&nbsp;
                     </td>
-                    <td colspan="2" background="Images/md_r2_c3.gif" style="vertical-align: middle; text-align: left;">&nbsp;
+                    <td colspan="2" background="./Images/md_r2_c3.gif" style="vertical-align: middle; text-align: left;">
                     <br />
                     </td>
-                    <td width="15" background="Images/md_r2_c4.gif">&nbsp;
+                    <td width="15" background="./Images/md_r2_c4.gif">
                     </td>
                 </tr>
                 <tr>
-                    <td width="15" background="Images/md_r4_c2.gif">&nbsp;
+                    <td width="15" background="./Images/md_r4_c2.gif">&nbsp;
                     </td>
                     <td colspan="2" id="td_top_centro" align="right">
                         <div id="clock" align="right" style="background-color: #636363"></div>
                     </td>
-                    <td width="15" background="Images/md_r5_c4.gif">&nbsp;
+                    <td width="15" background="./Images/md_r5_c4.gif">&nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td width="15" background="Images/md_r4_c2.gif">&nbsp;
+                    <td width="15" background="./Images/md_r4_c2.gif">&nbsp;
                     </td>
                     <td colspan="2" id="td_top_centro1">                        
                     </td>
-                    <td width="15" background="Images/md_r5_c4.gif">&nbsp;
+                    <td width="15" background="./Images/md_r5_c4.gif">&nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td width="15" height="285px" background="Images/md_r4_c2.gif">&nbsp;
+                    <td width="15" height="285px" background="./Images/md_r4_c2.gif">&nbsp;
                     </td>
                     <td valign="top" id="td_menu">&nbsp;
                      <div>
@@ -89,22 +91,22 @@
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </td>
-                    <td width="15" background="Images/md_r5_c4.gif">&nbsp;
+                    <td width="15" background="./Images/md_r5_c4.gif">&nbsp;
                     </td>
                 </tr>
                 <tr>
-                    <td width="15" background="Images/md_r4_c2.gif">&nbsp;
+                    <td width="15" background="./Images/md_r4_c2.gif">&nbsp;
                     </td>
                     <td colspan="2" align="center">
-                        <td width="15" background="Images/md_r5_c4.gif">&nbsp;
+                        <td width="15" background="./Images/md_r5_c4.gif">&nbsp;
                         </td>
                 </tr>
                 <tr>
-                    <td width="15" background="Images/md_r8_c2.gif">&nbsp;
+                    <td width="15" background="./Images/md_r8_c2.gif">&nbsp;
                     </td>
-                    <td colspan="2" background="Images/md_r8_c3.gif">&nbsp;
+                    <td colspan="2" background="./Images/md_r8_c3.gif">&nbsp;
                     </td>
-                    <td width="15" background="Images/md_r8_c4.gif">&nbsp;
+                    <td width="15" background="./Images/md_r8_c4.gif">&nbsp;
                     </td>
                 </tr>
             </table>
