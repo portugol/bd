@@ -3,11 +3,18 @@
 <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
     <table>
         <tr>
-            <td style="font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">
-                Listagem do Tipo de Testes</td>
+            <!--Título da tabela e respetivas formatações(cores,etc..)-->
+            <td style="font-weight: bold; font-size: 14px; font-family: Verdana; color:#ffffff; background-color: #ca5100">Listagem do Tipo de Testes</td>
         </tr>
         <tr>
-            <td>             
+            <td> 
+                <!--GridView: Mostra toda a informação da tabela tipo teste existente na BD 
+                              (através de um DATASOURCE que contém um comando Select em MySQL) 
+                    
+                    ItemTemplate: São os campos que pretendemos mostrar na GridView, mas com impossibilidade 
+                                  de serem alterados/editados/modificados, estão estáticos
+                    EditItemTemplate: São os campos que pretendemos mostrar na GridView, mas agora com possibilidade 
+                                      para serem alterados/editados/modificados, após ter-se clicado no botão de "Editar"-->            
                 <asp:GridView ID="GrdvList_TipoTeste" runat="server" AllowPaging="True" 
                     AllowSorting="True" AutoGenerateColumns="False" 
                     DataSourceID="SqlDataSource_TipoTeste" CellPadding="4" ForeColor="Black" 
@@ -22,6 +29,7 @@
                          <asp:TemplateField HeaderText="Data Início">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txt_DataInicio" runat="server" Text='<%# Bind("Data_Inicio") %>'></asp:TextBox>
+                                <!--Campo para inserir a data de início do teste, através de um calendário do AjaxToolkit-->
                                 <ajaxToolkit:CalendarExtender ID="CalendarExt_Inicio" runat="server" TargetControlID="txt_DataInicio" Format="yyyy-MM-d"></ajaxToolkit:CalendarExtender>
                             </EditItemTemplate>
                             <ItemTemplate>
@@ -31,6 +39,7 @@
                         <asp:TemplateField HeaderText="Data Fim">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txt_DataFim" runat="server" Text='<%# Bind("Data_Fim") %>'></asp:TextBox>
+                                <!--Campo para inserir a data de fim do teste, através de um calendário do AjaxToolkit-->
                                 <ajaxToolkit:CalendarExtender ID="CalendarExt_Fim" runat="server" TargetControlID="txt_DataFim" Format="yyyy-MM-d"></ajaxToolkit:CalendarExtender>
                             </EditItemTemplate>
                             <ItemTemplate>
@@ -40,8 +49,8 @@
                         <asp:TemplateField HeaderText="Duração">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txt_Duracao" runat="server" Text='<%# Bind("Duracao") %>'></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Duracao"
-                                    ErrorMessage="(*)"></asp:RequiredFieldValidator>
+                                <!--RequiredFieldValidator aparece quando o campo da textbox estiver vazio, ou seja, requer um preenchimento obrigatório-->
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Duracao" ErrorMessage="(*)"></asp:RequiredFieldValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lbl_Duracao" runat="server" Text='<%# Bind("Duracao") %>'></asp:Label>
@@ -50,8 +59,8 @@
                         <asp:TemplateField HeaderText="Descrição">
                             <EditItemTemplate>
                                 <asp:TextBox ID="txt_Descricao" runat="server" Text='<%# Bind("Descricao") %>'></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Descricao"
-                                    ErrorMessage="(*)"></asp:RequiredFieldValidator>
+                                <!--RequiredFieldValidator aparece quando o campo da textbox estiver vazio, ou seja, requer um preenchimento obrigatório-->
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Descricao" ErrorMessage="(*)"></asp:RequiredFieldValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lbl_Descricao" runat="server" Text='<%# Bind("Descricao") %>'></asp:Label>
@@ -75,6 +84,16 @@
                     <RowStyle BackColor="#F7F7DE" />
                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                 </asp:GridView>
+
+                <!--SqlDataSource, onde são feitos os comandos em MySQL, para podermos editar 
+                                    (fazer update) informação contida na tabela assim como eliminar informação da mesma
+                
+                    SelectCommand: Comando em MySQL para efetuar a listagem dos tipos de teste existentes
+                    UpdateCommand: Comando em MySQL chamado pelo botão editar, e que vai fazer o update na BD da tabela tipo teste
+                                   e dos campos modificados
+                    DeleteCommand: Comando em MySQL chamado pelo botão eliminar, para eliminar dados da tabela tipo teste
+                    
+                    UpdateParameters: São os campos aos quais vamos fazer update (editar)-->
                 <asp:SqlDataSource ID="SqlDataSource_TipoTeste" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>" 
                     SelectCommand="SELECT * FROM tipo_teste" 
@@ -97,4 +116,3 @@
         </tr>
     </table>
 </asp:Content>
-
