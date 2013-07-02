@@ -81,6 +81,23 @@
                                 <asp:Label ID="lbl_TipoPg" runat="server" Text='<%# Bind("TipoPg") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Lingua">
+                            <EditItemTemplate>
+                                <!--Campo para seleção e inserção do número do Tipo de pergunta a que a pergunta vai pertencer-->
+                                <asp:DropDownList ID="Drop_Lingua" runat="server" DataSourceID="SqlDataSource_Lingua" DataTextField="Lingua" DataValueField="IdLingua" AppendDataBoundItems="true" OnSelectedIndexChanged="Drop_Lingua_SelectedIndexChanged" AutoPostBack="true" EnableViewState="true">
+                                    <asp:ListItem Value="0" Selected="True">Escolha uma opção</asp:ListItem>
+                                </asp:DropDownList>
+                                <!--RequiredFieldValidator aparece quando o campo da textbox estiver vazio, ou seja, requer um preenchimento obrigatório-->
+                                <asp:RequiredFieldValidator InitialValue="0" ID="RequiredFieldValidator5" runat="server" ControlToValidate="Drop_Lingua" ErrorMessage="(*)"></asp:RequiredFieldValidator>
+                                <!--SqlDataSource, onde são feitos os comandos em MySQL
+                                                   SelectCommand: Comando em MySQL para efetuar a listagem das linguagens existentes-->
+                                <asp:SqlDataSource ID="SqlDataSource_Lingua" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
+                                        SelectCommand="SELECT IdLingua, Lingua FROM lingua" ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_Lingua" runat="server" Text='<%# Bind("Lingua") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField>
                             <EditItemTemplate>
                                 <asp:Button ID="bt_guardar" runat="server" Text="Guardar" CommandName="Update" />
@@ -116,19 +133,21 @@
                     ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
                     SelectCommand="SELECT * FROM perguntas"
                     DeleteCommand="DELETE FROM perguntas WHERE Id = @original_Id"
-                    UpdateCommand="UPDATE perguntas SET Pergunta = @Pergunta , Dificuldade = @Dificuldade ,CapituloId=@idCap, TipoPg=@idTipo WHERE Id = @original_Id" ConflictDetection="CompareAllValues"
-                    InsertCommand="INSERT INTO perguntas (Pergunta, Dificuldade, CapituloId, TipoPg) VALUES (@Pergunta, @Dificuldade, @CapituloId, @TipoPg)" OldValuesParameterFormatString="original_{0}"
+                    UpdateCommand="UPDATE perguntas SET Pergunta = @Pergunta , Dificuldade = @Dificuldade ,CapituloId=@idCap, TipoPg=@idTipo, Lingua=@idLingua WHERE Id = @original_Id" ConflictDetection="CompareAllValues"
+                    InsertCommand="INSERT INTO perguntas (Pergunta, Dificuldade, CapituloId, TipoPg, Lingua) VALUES (@Pergunta, @Dificuldade, @CapituloId, @TipoPg, @Lingua)" OldValuesParameterFormatString="original_{0}"
                     ProviderName="MySql.Data.MySqlClient">
                    <UpdateParameters>
                         <asp:Parameter Name="Pergunta" Type="String" />
                         <asp:Parameter Name="Dificuldade" Type="Int32" />
                         <asp:Parameter Name="idCap" Type="String" />
                         <asp:Parameter Name="idTipo" Type="String" />
+                        <asp:Parameter Name="idLingua" Type="String" />
                         <asp:Parameter Name="original_Id" Type="Int32" />
                         <asp:Parameter Name="original_Pergunta" Type="String" />
                         <asp:Parameter Name="original_Dificuldade" Type="Int32" />
                         <asp:Parameter Name="original_idCap" Type="String" />
                         <asp:Parameter Name="original_idTipo" Type="String" />
+                        <asp:Parameter Name="original_idLingua" Type="String" />
                     </UpdateParameters>
                     <DeleteParameters>
                         <asp:Parameter Name="original_Id" Type="Int32" />
@@ -136,6 +155,7 @@
                         <asp:Parameter Name="original_Dificuldade" Type="Int32" />
                         <asp:Parameter Name="original_CapituloId" Type="String" />
                         <asp:Parameter Name="original_TipoPg" Type="String" />
+                        <asp:Parameter Name="original_idLingua" Type="String" />
                     </DeleteParameters>
                 </asp:SqlDataSource>
                 
@@ -143,6 +163,8 @@
                 <asp:Label ID="lbl" runat="server" Visible="False" Text=""></asp:Label>
                 <!--label utilizada para guardar o valor retirado na drop do tipo de pergunta-->
                 <asp:Label ID="lbl2" runat="server" Visible="False" Text=""></asp:Label>
+                <!--label utilizada para guardar o valor retirado na drop da lingua-->
+                <asp:Label ID="lbl3" runat="server" Visible="False" Text=""></asp:Label>
                 <!--label utilizada para guardar o valor retirado na drop do id do capitulo-->
                 <asp:Label ID="lblteste" runat="server" Visible="False" Text=""></asp:Label>
             </td>

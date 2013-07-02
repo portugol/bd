@@ -30,8 +30,8 @@ public partial class Perguntas_Inserir : System.Web.UI.Page
 
         //Comando em MySQl para inserir dados na BD
         string sqlString = "INSERT INTO perguntas " +
-                "(Pergunta, Dificuldade, CapituloId, TipoPg) " +
-                "VALUES (@Pergunta, @Dificuldade, @CapituloId, @TipoPg);";
+                "(Pergunta, Dificuldade, CapituloId, TipoPg, Lingua) " +
+                "VALUES (@Pergunta, @Dificuldade, @CapituloId, @TipoPg, @Lingua);";
 
         //indica a connectionstring e o comando a serem realizados
         MySqlCommand Cmd = new MySqlCommand(sqlString, MyConn);
@@ -41,6 +41,7 @@ public partial class Perguntas_Inserir : System.Web.UI.Page
         Cmd.Parameters.AddWithValue("@Dificuldade", txt_Dificuldade.Text);
         Cmd.Parameters.AddWithValue("@CapituloId", Drop_Capitulo.Text);
         Cmd.Parameters.AddWithValue("@TipoPg", Drop_Tipo.Text);
+        Cmd.Parameters.AddWithValue("@Lingua", Drop_Lingua.Text);
 
         try
         {
