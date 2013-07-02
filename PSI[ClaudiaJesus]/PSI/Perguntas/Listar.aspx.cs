@@ -28,12 +28,21 @@ public partial class Perguntas_Listar : System.Web.UI.Page
         DropDownList Drop_Tipo = (DropDownList)gvr.FindControl("Drop_Tipo");
         lbl2.Text = Drop_Tipo.SelectedItem.Value;       
     }
+
+    protected void Drop_Lingua_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //É retirado o valor seleccionado da Drop_Lingua contido dentro de uma GridView para uma label (que está invisível)
+        GridViewRow gvr = (GridViewRow)(((Control)sender).NamingContainer);
+        DropDownList Drop_Lingua = (DropDownList)gvr.FindControl("Drop_Lingua");
+        lbl3.Text = Drop_Lingua.SelectedItem.Value;
+    }
     
     protected void SqlDataSource_IdCT(object sender, SqlDataSourceCommandEventArgs e)
     {
             //atribuir o valor recebido na label para um parametro, para se poder adicionar na BD através do comando em MySQL
             e.Command.Parameters["@idCap"].Value = lbl.Text;
             e.Command.Parameters["@idTipo"].Value = lbl2.Text;
+            e.Command.Parameters["@idLingua"].Value = lbl3.Text;
        
     }
 

@@ -25,10 +25,25 @@
                     <asp:SqlDataSource ID="SqlDataSource_Descricao" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
                         SelectCommand="SELECT Id, Descricao FROM tipo_teste"
                         ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
-                    <br />
                     <!--label utilizada para guardar o valor retirado na drop da descrição-->
                     <asp:Label ID="lbl_idDescricao" runat="server" Visible="false"></asp:Label>
                     <br />
+                    <br />
+
+                    <asp:Label ID="lbl_Lingua" runat="server" Text="Lingua" Style="font-size: medium; font-weight: 700; color: #666666;"></asp:Label>
+                    <!--Seleção do capitulo que se deseja inserir na tabela enunciados-->
+                    <asp:DropDownList ID="Drop_Lingua" runat="server" DataSourceID="SqlDataSource_Lingua" DataTextField="Lingua" DataValueField="IdLingua" AppendDataBoundItems="true" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="Drop_Lingua_SelectedIndexChanged">
+                        <asp:ListItem Value="0" Selected="True">Escolha uma opção</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Drop_Lingua" ErrorMessage="(*)" InitialValue="0"></asp:RequiredFieldValidator>
+                    <br />
+                    <!--label utilizada para guardar o valor retirado na drop do Id do Lingua-->
+                    <asp:Label ID="lbl_idLingua" runat="server" Text="" Visible="true"></asp:Label>
+                    <asp:SqlDataSource ID="SqlDataSource_Lingua" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
+                        ProviderName="MySql.Data.MySqlClient"
+                        SelectCommand="SELECT IdLingua, Lingua FROM lingua"></asp:SqlDataSource>
+                     <br />
+                     <br />
                     <span style="font-size: medium; color: #666666;"><strong>Data Inicio:</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;
                     <!--label utilizada para mostrar a data de inicio do teste selecionado-->
                         <asp:Label ID="lbl_DataInicio" runat="server" Text="" Style="font-weight: 700; color: #666666"></asp:Label>
