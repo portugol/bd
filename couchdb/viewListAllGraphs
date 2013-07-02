@@ -17,7 +17,7 @@ permite filtrar os dados visualizados.
    "views": {
        "graph": {
            "map": "function(doc) {\n\tif(doc.type == 'graph'){\n emit(doc.userId, {GraphID: doc._id, Graph:doc.graph});\n}\n \n}"
-       }
+       },
        "users": {
            "map": "function(doc) {\n\tif(doc.type == 'graph'){\n emit(doc.userId, {GraphID: doc._id, Graph:doc.graph});\n}\n \n}"
        }
@@ -25,3 +25,18 @@ permite filtrar os dados visualizados.
 }
 
 http://localhost:5984/mydb/_design/graph/_view/users
+
+{
+   "_id": "_design/graphR",
+   "views": {
+       "graph": {
+           "map": "function(doc) {if(doc.type == 'graph'){emit(doc.userId, {GraphID: doc._id, Graph:doc.grafo});}}"
+       },
+       "users": {
+           "map":"function(doc) {if(doc.type == 'graph'){emit(doc.userId, {GraphID: doc._id, Graph:doc.grafo});}}"
+       },
+"reduce":"_count"
+   }
+}
+130.185.82.181:5984/mydb2/_design/graphR/_view/graphR
+
