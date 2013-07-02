@@ -41,6 +41,23 @@
             <td style="width: 152px; text-align: left">&nbsp;</td>
         </tr>
         <tr>
+           <td style="width: 120px; text-align: right">
+                <!--Label com o nome do que se quer inserir na BD com as respetivas formatações(cores,etc..)-->
+                <asp:Label ID="lbl_Lingua" runat="server" Text="Lingua" Font-Names="Verdana" Font-Size="12px"></asp:Label></td>
+            <td style="width: 913px; text-align: left">
+                <!--Campo para seleção e inserção do número do tipo de pergunta à qual a pergunta vai pertencer-->
+                <asp:DropDownList ID="Drop_Lingua" runat="server" AppendDataBoundItems="true" DataSourceID="SqlDataSource_Lingua" DataTextField="Lingua" DataValueField="IdLingua">
+                    <asp:ListItem Value="0" Selected="True">Escolha uma opção</asp:ListItem>
+                </asp:DropDownList>
+                <!--RequiredFieldValidator aparece quando o campo da textbox estiver vazio, ou seja, requer um preenchimento obrigatório-->
+                <asp:RequiredFieldValidator InitialValue="0" ID="RequiredFieldValidator5" runat="server" ControlToValidate="Drop_Lingua" ErrorMessage="(*)"></asp:RequiredFieldValidator>
+                <!--SqlDataSource, onde são feitos os comandos em MySQL                
+                                   SelectCommand: Comando em MySQL para efetuar a listagem dos tipos de pergunta existentes-->
+                <asp:SqlDataSource ID="SqlDataSource_Lingua" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString_Listar %>"
+                    SelectCommand="SELECT IdLingua, Lingua FROM lingua" ProviderName="MySql.Data.MySqlClient"></asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
             <td style="width: 120px; text-align: right">
                 <!--Label com o nome do que se quer inserir na BD com as respetivas formatações(cores,etc..)-->
                 <asp:Label ID="lbl_Dificuldade" runat="server" Text="Dificuldade" Font-Names="Verdana" Font-Size="12px"></asp:Label></td>

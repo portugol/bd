@@ -161,7 +161,7 @@ public partial class Teste : System.Web.UI.Page
 
                     // crio uma nova consulta de SQL em que seleciono n perguntas aleatorias (Rand()) de um determinado capitulo com uma determinada dificuldade
                     sqlCommand = new MySqlCommand("SELECT perguntas.Pergunta FROM perguntas, enunciados WHERE perguntas.Dificuldade = " +
-                    arrayListDif[i] + " AND perguntas.CapituloId = " + arrayListCap[i] + " order by Rand()  LIMIT " + Convert.ToInt32(arrayListSoma[i]), MyConn);
+                     arrayListDif[i] + " AND perguntas.CapituloId = " + arrayListCap[i] + " AND perguntas.Lingua = "+ lbl_idLingua.Text +" order by Rand()  LIMIT " + Convert.ToInt32(arrayListSoma[i]), MyConn);
 
                     // criamos um reader que vai executar o comando SQL e fica com o resultado da consulta
                     reader = sqlCommand.ExecuteReader();
@@ -288,6 +288,12 @@ public partial class Teste : System.Web.UI.Page
         {
 
         }
+    }
+
+    protected void Drop_Lingua_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //a label toma o valor selecionado da dropdownlist
+        lbl_idLingua.Text = Drop_Lingua.SelectedItem.Value;
     }
 
     protected void Drop_Capitulo_SelectedIndexChanged(object sender, EventArgs e)
